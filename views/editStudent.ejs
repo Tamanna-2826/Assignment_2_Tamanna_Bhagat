@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+</head>
+<body align="center">
+    <h1>Edit Student</h1>
+    <form action="/students/edit/<%= student._id %>" method="POST">
+       Name : <input type="text" name="name" value="<%= student.name %>" required> <br><br>
+       Age :  <input type="number" name="age" value="<%= student.age %>" required> <br><br>
+       gender :  <input type="text" name="gender" value="<%= student.gender %>" required> <br><br>
+        Semester : <input type="number" name="sem" value="<%= student.sem %>" required> <br><br>
+        division : <input type="text" name="div" value="<%= student.div %>" required> <br><br>
+        DOB : <input type="date" name="dob" value="<%= student.dob.toISOString().slice(0, 10) %>" required> <br><br>
+        <button type="submit">Update Student</button>
+    </form><br>
+    <a href="/students">Cancel</a>
+</body>
+</html>

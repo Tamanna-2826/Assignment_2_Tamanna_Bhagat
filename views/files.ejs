@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Uploaded Files</title>
+</head>
+
+<body align="center">
+    <h2>Uploaded Files</h2>
+    <a href="/user/register">Register New User</a> <br><br>
+
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user=> { %>
+                <tr>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.phoneno %>
+                    </td>
+                    <td>
+                        <% if (user.files.length> 0) { %>
+                            <% user.files.forEach(file=> { %>
+                                <div>
+                                    <span>
+                                        <%= file %>
+                                    </span> -
+
+                                    <a href="/user/download/<%= file %>">Download </a>
+                                </div>
+                                <% }); %>
+                                    <% } else { %>
+                                        No files uploaded
+                                        <% } %>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>

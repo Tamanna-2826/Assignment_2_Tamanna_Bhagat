@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Profile</title>
+</head>
+
+<body align="center">
+    <h2>User Profile</h2>
+
+    <div style="text-align: right;">
+        <a href="/user/logout">Logout</a>
+    </div>
+
+    <table border="1" cellpadding="10" cellspacing="0" align="center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Uploaded Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.phoneno %>
+                </td>
+                <td>
+                    <% if (user.files.length> 0) { %>
+                        <% user.files.forEach(file=> { %>
+
+                            <img src="/uploads/<%= file %>" alt="<%= file %>"
+                                style="width: 25%; height: 25%;">
+                            <a style="margin-bottom:90px ;" href="/user/download/<%= file %>">Download</a> 
+                            <% }) %>
+                                <% } else { %>
+                                    <p>No files uploaded.</p>
+                                    <% } %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
